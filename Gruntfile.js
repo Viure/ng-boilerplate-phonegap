@@ -18,6 +18,7 @@ module.exports = function ( grunt ) {
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-ngmin');
   grunt.loadNpmTasks('grunt-html2js');
+  grunt.loadNpmTasks('grunt-exec');
 
   /**
    * Load in our build configuration file.
@@ -536,6 +537,14 @@ module.exports = function ( grunt ) {
           livereload: false
         }
       }
+    },
+    exec: {
+        phonegap_build: {
+            cwd: "phonegap",
+            cmd: function(platform){
+                return "phonegap build " + platform;
+            }
+        }
     }
   };
 
@@ -573,7 +582,22 @@ module.exports = function ( grunt ) {
   grunt.registerTask( 'compile', [
     'recess:compile', 'copy:compile_assets', 'ngmin', 'concat:compile_js', 'uglify', 'index:compile'
   ]);
+  
+  /**
+   * Tasks for phonegap.
+   */
+  grunt.registerTask( 'android', [
+	'compile', 'exec:phonegap_build:android'
+  ]);
 
+  grunt.registerTask( 'ios', [
+	'compile', 'exec:phonegap_build:ios'
+  ]);
+
+  grunt.registerTask( 'blackberry', [
+	'compile', 'exec:phonegap_build:blackberry'
+  ]);
+  
   /**
    * A utility function to get all app JavaScript sources.
    */
