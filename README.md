@@ -1,4 +1,4 @@
-# [ngBoilerplate](https://github.com/rowy/ng-boilerplate-phonegap)
+# [ng-oilerplate-phonegap](https://github.com/rowy/ng-boilerplate-phonegap)
 
 A fork of [ngBoilerplate](https://github.com/ngbp/ng-boilerplate), to add phonegap capabilities.
 
