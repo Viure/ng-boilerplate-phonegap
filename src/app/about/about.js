@@ -1,7 +1,6 @@
 angular.module( 'ngBoilerplate.about', [
-  'ui.state',
-  'placeholders',
-  'ui.bootstrap'
+  'ui.router',
+  'placeholders'
 ])
 
 .config(function config( $stateProvider ) {
